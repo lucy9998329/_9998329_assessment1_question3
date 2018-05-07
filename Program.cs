@@ -23,9 +23,8 @@ namespace personClass
         public string PersonInfo(){
             var personInfo = "Enter name of new person bellow\n";            
             personInfo += $"First Name: {FirstName}\n";
-            carDetails += $"Make: {Make}\n";
-            carDetails += $"Gearbox type: {Gearbox}\n";
-            return carDetails;
+            personInfo += $"Last Name: {LastName}\n";
+            return PersonInfo;
         }
     }
     class Program
