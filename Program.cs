@@ -8,9 +8,6 @@ namespace personClass
         public string FirstName {get; set; }
         public string LastName {get; set; }
         public int YearOfBirth {get; set; }
-        public static DateTime Today { get; }
-        public string getage;
-        public string getfullname;
 
         //Constructor
         public Person(string firstname, string lastname, int yearofbirth)
@@ -20,15 +17,12 @@ namespace personClass
             YearOfBirth = yearofbirth;
         }
 
-        public string getFullName(){
-            getfullname += $"{FirstName + LastName}"; 
-            return getfullname;
+        public string getFullName(){ 
+            return FirstName + LastName;
             }
         public int getAge(DateTime YearOfBirth, DateTime Today)
         {
-            int getage = Today.Year - YearOfBirth.Year - (YearOfBirth.DayOfYear < Today.DayOfYear ? 0 : 1);
-            return getage;
-
+            return Today.Year - YearOfBirth.Year - (YearOfBirth.DayOfYear < Today.DayOfYear ? 0 : 1);
         }
         public string PersonInfo(){
             var personInfo = "Enter name of new person bellow\n";            
@@ -37,12 +31,12 @@ namespace personClass
             personInfo += $"Creating new person record...\n\n";
             personInfo += $"Enter year of birth: 1995\n";
             return personInfo;
-        }         
+        }
     }
     class Program
     {
-        public static string FirstName;
-        
+        private static DateTime DayOfYear;
+        public static DateTime YearOfBirth;
         static void Main(string[] args)
         {
             //Star the program with Clear()
@@ -50,7 +44,7 @@ namespace personClass
 
             Person person1 = new Person ("Jane", "Doe", 1995);
             Console.WriteLine(person1.PersonInfo());        
-            person1  = $"Person: {person1.getFullName()}  is {person1.getAge()} years old.";
+            Console.WriteLine($"Person: {person1.getFullName()}  is {person1.getAge(YearOfBirth, DayOfYear )} years old.");
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
 
