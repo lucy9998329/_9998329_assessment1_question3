@@ -21,13 +21,11 @@ namespace personClass
         }
 
         public string getFullName(){
-            var getfullname = "Creating new person record";
             getfullname += $"{FirstName + LastName}"; 
             return getfullname;
             }
         public int getAge(DateTime YearOfBirth, DateTime Today)
         {
-            
             int getage = Today.Year - YearOfBirth.Year - (YearOfBirth.DayOfYear < Today.DayOfYear ? 0 : 1);
             return getage;
 
@@ -35,14 +33,11 @@ namespace personClass
         public string PersonInfo(){
             var personInfo = "Enter name of new person bellow\n";            
             personInfo += $"First Name: {FirstName}\n";
-            personInfo += $"Last Name: {LastName}\n";
+            personInfo += $"Last Name: {LastName}\n\n";
+            personInfo += $"Creating new person record...\n\n";
+            personInfo += $"Enter year of birth: 1995\n";
             return personInfo;
-        }
-
-        //Overriding the method in the Person class
-        public override string ToString(){
-            return $"Person: {getfullname} is {getage} years old. ";
-        }            
+        }         
     }
     class Program
     {
@@ -54,13 +49,9 @@ namespace personClass
             Console.Clear();
 
             Person person1 = new Person ("Jane", "Doe", 1995);
-            Console.WriteLine(person1.PersonInfo());
-            Console.WriteLine("Creating new person record...");
-            Console.WriteLine("Enter year of birth: 1995");            
-            Console.WriteLine(person1.ToString());
+            Console.WriteLine(person1.PersonInfo());        
+            person1  = $"Person: {person1.getFullName()}  is {person1.getAge()} years old.";
             Console.WriteLine("Press any key to exit");
-            
-            
             Console.ReadKey();
 
         }
