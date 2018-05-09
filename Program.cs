@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace personClass
 {
@@ -57,7 +58,7 @@ namespace personClass
             Console.WriteLine($"Person: {person2.getFullName()} is {person2.getAge()} years old.");
         
             var checkAnswer = true;
-
+            
             do
             {              
             Console.Write("Do you want to enter another person?<y/n> ");
@@ -71,14 +72,14 @@ namespace personClass
             } if(checkAnswer){
             Console.WriteLine("Enter name of new person bellow");
             Console.Write("First Name: ");
-            string firstname = Console.ReadLine();
+            var firstname = Console.ReadLine();
             Console.Write("Last Name: ");
-            string lastname = Console.ReadLine();
+            var lastname = Console.ReadLine();
             Console.WriteLine();
             Console.WriteLine("Greeting new person record...\n");
             Console.Write("Enter year of birth: ");
-            var yearofbirth = Console.ReadLine();
-            Person person3 = new Person ("", "", 2000);
+            int userInput = int.Parse(Console.ReadLine());
+            Person person3 = new Person ("", "", 2002);
             Console.WriteLine($"Person: {person3.getFullName()}  is {person3.getAge()} years old. \n");
             Console.ReadKey();             
             }
