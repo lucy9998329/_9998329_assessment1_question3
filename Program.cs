@@ -26,9 +26,11 @@ namespace personClass
         }
         public string PersonInfo()
         {
-            var personInfo = "Enter name of new person bellow \n";            
+            var personInfo = "Enter name of new person below \n";            
             personInfo += $"First Name: {FirstName}\n";
-            personInfo += $"Last Name: {LastName}\n";
+            personInfo += $"Last Name: {LastName}\n\n";
+            personInfo += $"Creating new person record...\n\n";
+            personInfo += $"Enter year of birth: {YearOfBirth} \n";  
             return personInfo;
         }
     }
@@ -41,15 +43,11 @@ namespace personClass
             Console.Clear();
 
             Person person = new Person ("Jane", "Doe", 1995);
-            Console.WriteLine(person.PersonInfo());
-            Console.WriteLine("Creating new person record...\n");
-            Console.WriteLine("Enter year of birth: 1995 \n");         
+            Console.WriteLine(person.PersonInfo());       
             Console.WriteLine($"Person: {person.getFullName()} is {person.getAge()} years old.");
             Console.Write("Do you want to enter another person?<y/n> y\n");
             Person person1 = new Person ("John", "Smith", 2001);
             Console.WriteLine(person1.PersonInfo());
-            Console.WriteLine("Creating new person record...\n");
-            Console.WriteLine("Enter year of birth: 2001 \n");
             Console.WriteLine($"Person: {person1.getFullName()} is {person1.getAge()} years old.");
         
             var checkAnswer = true;
@@ -65,7 +63,7 @@ namespace personClass
                 checkAnswer = false;
 
             } if(checkAnswer){
-            Console.WriteLine("Enter name of new person bellow");
+            Console.WriteLine("Enter name of new person below");
             Console.Write("First Name: ");
             var firstname = Console.ReadLine();
             Console.Write("Last Name: ");
